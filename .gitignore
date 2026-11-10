@@ -1,0 +1,29 @@
+# local tooling (azd binary, python venv)
+.tools/
+.venv/
+
+# azd environment state (contains subscription / endpoint info)
+.azure/
+
+# python
+__pycache__/
+*.pyc
+
+# demo run artifacts
+demo/out/
+*.local.json
+.azure
+
+/demo-video.mp4
+video/node_modules/
+video/auth/
+video/film/media/
+video/film/.hyperframes/
+video/film/renders/
+video-footage/cuts/
+video/film/fonts/
+video/_t/
+video-footage/_sc/
+video-footage/console-hq/frames*/
+video-footage/console-hq/*.mp4
+video-footage/console-hq/*.ffconcat

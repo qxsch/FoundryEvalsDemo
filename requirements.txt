@@ -1,0 +1,3 @@
+# Demo tooling (agent setup, bake-off, reset) plus the console, for running everything locally.
+-r console/requirements.txt
+rich>=13.0

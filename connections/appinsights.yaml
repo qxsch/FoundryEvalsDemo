@@ -1,0 +1,9 @@
+name: contoso-te-appinsights
+category: AppInsights
+target: ${AZURE_APPLICATION_INSIGHTS_RESOURCE_ID}
+authType: ApiKey
+credentials:
+  key: ${APPLICATIONINSIGHTS_CONNECTION_STRING}
+metadata:
+  ApiType: Azure
+  ResourceId: ${AZURE_APPLICATION_INSIGHTS_RESOURCE_ID}

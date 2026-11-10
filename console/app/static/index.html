@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contoso T&amp;E Assistant · Agent console</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">C</span>
+      <div>
+        <div class="title">Contoso T&amp;E Policy Assistant</div>
+        <div class="subtitle">Agent console · <span id="agent-name">…</span> · powered by Microsoft Foundry</div>
+      </div>
+    </div>
+    <div class="user" id="user">…</div>
+  </header>
+
+  <main>
+    <section class="grid">
+      <article class="card" id="editor-card">
+        <div class="card-head">
+          <h2>Agent definition</h2>
+          <span class="muted" id="editor-base"></span>
+        </div>
+        <div class="row">
+          <label>Model
+            <select id="model"></select>
+          </label>
+          <label>Knowledge
+            <select id="knowledge">
+              <option value="file_search">Handbook via file_search tool</option>
+              <option value="inline">Handbook in the prompt (no tools)</option>
+            </select>
+          </label>
+          <label>Start from
+            <select id="preset"><option value="">Load a preset…</option></select>
+          </label>
+        </div>
+        <label>Instructions
+          <textarea id="instructions" rows="15" spellcheck="false"></textarea>
+        </label>
+        <label>Change note
+          <input id="note" maxlength="300" placeholder="What did you change and why?">
+        </label>
+        <div class="actions">
+          <button class="primary" id="save">Save as new version</button>
+          <button id="revert">Discard changes</button>
+          <span class="status" id="save-status"></span>
+        </div>
+      </article>
+
+      <article class="card" id="chat-card">
+        <div class="card-head">
+          <h2>Try it</h2>
+          <label class="inline">Version <select id="chat-version"></select></label>
+        </div>
+        <div class="samples" id="samples"></div>
+        <div class="chat" id="chat"></div>
+        <form class="chat-input" id="chat-form">
+          <input id="message" autocomplete="off" placeholder="Ask a T&amp;E policy question…">
+          <button class="primary" type="submit">Send</button>
+        </form>
+      </article>
+    </section>
+
+    <article class="card" id="eval-card">
+      <div class="card-head">
+        <h2>Evaluations <span class="muted" id="gate-info"></span></h2>
+        <div class="actions">
+          <label class="inline muted"><input type="checkbox" id="show-all"> include model bake-off candidates</label>
+          <label class="inline">Version <select id="eval-version"></select></label>
+          <button class="primary" id="run-eval">Run evaluation</button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table id="runs">
+          <thead><tr><th>Run</th><th>Agent</th><th>Model</th><th>Started by</th><th>Status</th><th>Pass rate</th><th>Gate</th><th></th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div id="run-detail" class="detail hidden"></div>
+    </article>
+
+    <article class="card" id="history-card">
+      <div class="card-head"><h2>Version history</h2></div>
+      <div class="table-wrap">
+        <table id="versions">
+          <thead><tr><th>Version</th><th>Model</th><th>Knowledge</th><th>Updated by</th><th>Change note</th><th>Created</th><th></th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </article>
+  </main>
+
+  <div id="toast" class="toast hidden"></div>
+  <script src="/static/app.js"></script>
+</body>
+</html>

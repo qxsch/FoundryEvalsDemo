@@ -1,0 +1,29 @@
+datasets:
+  - name: golden
+    file: ./golden.jsonl
+evaluators:
+  - name: te-policy-rubric
+    displayName: Contoso T&E policy compliance
+    source: ./policy-rubric.json
+evals:
+  - name: te-policy-regression
+    description: Regression gate for contoso-te-assistant. Grounded in the T&E handbook, complete versus the expected answer, and compliant with the policy rubric.
+    dataset: golden
+    evaluationLevel: turn
+    evaluators:
+      - evaluator: builtin.groundedness
+        initializationParameters:
+          model: gpt-5.4
+        dataMapping:
+          context: "{{item.context}}"
+      - evaluator: builtin.response_completeness
+        initializationParameters:
+          model: gpt-5.4
+        dataMapping:
+          ground_truth: "{{item.ground_truth}}"
+      - evaluator: te-policy-rubric
+        initializationParameters:
+          model: gpt-5.4
+    target:
+      type: agent
+      name: contoso-te-assistant

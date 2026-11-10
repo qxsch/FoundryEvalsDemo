@@ -1,0 +1,113 @@
+{
+  "parameters": {
+    "agentSubnetName": {
+      "value": "agent-subnet"
+    },
+    "agentSubnetPrefix": {
+      "value": ""
+    },
+    "createAgentSubnet": {
+      "value": false
+    },
+    "createPESubnet": {
+      "value": false
+    },
+    "deployments": {
+      "value": [
+        {
+          "name": "gpt-5.4-mini",
+          "model": {
+            "name": "gpt-5.4-mini",
+            "format": "OpenAI",
+            "version": "2026-03-17"
+          },
+          "sku": {
+            "name": "GlobalStandard",
+            "capacity": 300
+          }
+        },
+        {
+          "name": "gpt-5.4",
+          "model": {
+            "name": "gpt-5.4",
+            "format": "OpenAI",
+            "version": "2026-03-05"
+          },
+          "sku": {
+            "name": "GlobalStandard",
+            "capacity": 300
+          }
+        },
+        {
+          "name": "gpt-5.4-nano",
+          "model": {
+            "name": "gpt-5.4-nano",
+            "format": "OpenAI",
+            "version": "2026-03-17"
+          },
+          "sku": {
+            "name": "GlobalStandard",
+            "capacity": 300
+          }
+        },
+        {
+          "name": "DeepSeek-V4-Flash",
+          "model": {
+            "name": "DeepSeek-V4-Flash",
+            "format": "DeepSeek",
+            "version": "2026-04-23"
+          },
+          "sku": {
+            "name": "DataZoneStandard",
+            "capacity": 200
+          }
+        }
+      ]
+    },
+    "dnsZonesResourceGroup": {
+      "value": ""
+    },
+    "dnsZonesSubscription": {
+      "value": ""
+    },
+    "enableNetworkIsolation": {
+      "value": false
+    },
+    "principalId": {
+      "value": "${AZURE_PRINCIPAL_ID}"
+    },
+    "agentName": {
+      "value": "${AGENT_NAME=contoso-te-assistant}"
+    },
+    "judgeModel": {
+      "value": "${JUDGE_MODEL=gpt-5.4}"
+    },
+    "consoleImage": {
+      "value": "${SERVICE_CONSOLE_IMAGE_NAME=mcr.microsoft.com/azuredocs/containerapps-helloworld:latest}"
+    },
+    "entraClientId": {
+      "value": "${ENTRA_CLIENT_ID}"
+    },
+    "entraClientSecret": {
+      "value": "${ENTRA_CLIENT_SECRET}"
+    },
+    "includeAcr": {
+      "value": false
+    },
+    "managedIsolationMode": {
+      "value": ""
+    },
+    "peSubnetName": {
+      "value": "pe-subnet"
+    },
+    "peSubnetPrefix": {
+      "value": ""
+    },
+    "useManagedEgress": {
+      "value": false
+    },
+    "vnetId": {
+      "value": ""
+    }
+  }
+}
